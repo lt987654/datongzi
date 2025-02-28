@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>大桐子｜玲珑矩阵</title>
+    <style>
+        :root {
+            --deep-blue: #1565c0;
+            --sky-gradient: linear-gradient(150deg, #e3f2fd 20%, #bbdefb 80%);
+            --crystal-border: rgba(21,101,192,0.15);
+            --compact-scale: 0.85;
+            --mini-gap: calc(1.5rem * var(--compact-scale));
+        }
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'HarmonyOS Sans', system-ui;
+        }
+ 
+        body {
+            background: var(--sky-gradient);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+ 
+        .matrix-container {
+            width: min(96%, 1200px);
+            padding: 6vh 0;
+        }
+ 
+        .dynasty-title {
+            font-size: clamp(3rem, 7vw, 4.5rem);
+            color: var(--deep-blue);
+            text-align: center;
+            margin-bottom: calc(3rem * var(--compact-scale));
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 8px rgba(21,101,192,0.1);
+        }
+ 
+        .golden-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 280px));
+            gap: var(--mini-gap);
+            justify-content: center;
+            padding: 0 1rem;
+        }
+ 
+        .matrix-cell {
+            background: rgba(255,255,255,0.98);
+            border-radius: calc(20px * var(--compact-scale));
+            padding: calc(1.8rem * var(--compact-scale));
+            box-shadow: 0 6px 24px -6px rgba(21,101,192,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--crystal-border);
+        }
+ 
+        .matrix-cell:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 36px -4px rgba(21,101,192,0.15);
+        }
+ 
+        .cell-core {
+            display: flex;
+            flex-direction: column;
+            gap: calc(1.2rem * var(--compact-scale));
+            text-decoration: none;
+            color: inherit;
+        }
+ 
+        .matrix-image {
+            width: 100%;
+            height: calc(180px * var(--compact-scale));
+            border-radius: calc(12px * var(--compact-scale));
+            overflow: hidden;
+            background: #f8fafd;
+            position: relative;
+        }
+ 
+        .matrix-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+ 
+        .matrix-cell:hover img {
+            transform: scale(1.06);
+        }
+ 
+        .matrix-label {
+            font-size: clamp(1.4rem, 2vw, 1.8rem);
+            color: var(--deep-blue);
+            text-align: center;
+            font-weight: 600;
+            padding-top: calc(1rem * var(--compact-scale));
+            position: relative;
+        }
+ 
+        .matrix-label::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(35px * var(--compact-scale));
+            height: calc(2px * var(--compact-scale));
+            background: var(--deep-blue);
+            border-radius: 1px;
+        }
+ 
+        @media (max-width: 1024px) {
+            :root { --compact-scale: 0.9; }
+            .golden-grid { grid-template-columns: repeat(2, minmax(0, 260px)); }
+        }
+ 
+        @media (max-width: 640px) {
+            :root { --compact-scale: 0.95; }
+            .golden-grid { 
+                grid-template-columns: minmax(0, 320px);
+                gap: 1.5rem;
+            }
+            .matrix-image { height: 50vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-container">
+        <h1 class="dynasty-title">大桐子</h1>
+        
+        <div class="golden-grid">
+            <!-- 书法 -->
+            <div class="matrix-cell">
+                <a href="https://photo.baidu.com/photo/wap/albumShare/invite/RPnMxdZoLD?from=webcreate" class="cell-core">
+                    <div class="matrix-image">
+                        <img src="images/1fengmian/shufa.jpg" loading="lazy" alt="书法">
+                    </div>
+                    <div class="matrix-label">书法</div>
+                </a >
+            </div>
+
+             <!-- 书法篆刻 -->
+             <div class="matrix-cell">
+                <a href="https://photo.baidu.com/photo/wap/albumShare/invite/CTPoVJLRPm?from=webcreate" class="cell-core">
+                    <div class="matrix-image">
+                        <img src="images/1fengmian/shufa.jpg" loading="lazy" alt="书法篆刻">
+                    </div>
+                    <div class="matrix-label">书法篆刻</div>
+                </a >
+            </div>
+            
+            <!-- 绘画手绘 -->
+            <div class="matrix-cell">
+                <a href="/painting" class="cell-core">
+                    <div class="matrix-image">
+                        <img src="images/1fengmian/huahua.jpg" 
+                             loading="lazy" alt="绘画手绘">
+                    </div>
+                    <div class="matrix-label">绘画手绘</div>
+                </a >
+            </div>
+
+            <!-- 绘画板绘 -->
+            <div class="matrix-cell">
+                <a href="/painting" class="cell-core">
+                    <div class="matrix-image">
+                        <img src="images/1fengmian/huahua.jpg" 
+                             loading="lazy" alt="绘画板绘">
+                    </div>
+                    <div class="matrix-label">绘画板绘</div>
+                </a >
+            </div>
+ 
+            <!-- 计算机 -->
+            <div class="matrix-cell">
+                <a href="/coding" class="cell-core">
+                    <div class="matrix-image">
+                        <img src="images/1fengmian/computer.jpg" 
+                             loading="lazy" alt="数字秘境">
+                    </div>
+                    <div class="matrix-label">计算机</div>
+                </a >
+            </div>
+        </div>
+    </div>
+</body>
+</html>
